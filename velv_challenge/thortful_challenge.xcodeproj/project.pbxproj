@@ -180,7 +180,7 @@
 		48BE3A182A4DE68900BF894E = {
 			isa = PBXGroup;
 			children = (
-				48BE3A232A4DE68A00BF894E /* velv_challenge */,
+				48BE3A232A4DE68A00BF894E /* thortful_challenge */,
 				48BE3A6E2A4DF36800BF894E /* thortful_challengeTests */,
 				48BE3A222A4DE68A00BF894E /* Products */,
 			);
@@ -195,7 +195,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		48BE3A232A4DE68A00BF894E /* velv_challenge */ = {
+		48BE3A232A4DE68A00BF894E /* thortful_challenge */ = {
 			isa = PBXGroup;
 			children = (
 				48BE3A562A4DE6E000BF894E /* App */,
@@ -205,7 +205,7 @@
 				48BE3A2F2A4DE69100BF894E /* LaunchScreen.storyboard */,
 				48BE3A322A4DE69100BF894E /* Info.plist */,
 			);
-			path = velv_challenge;
+			path = thortful_challenge;
 			sourceTree = "<group>";
 		};
 		48BE3A542A4DE6D400BF894E /* Domain */ = {
