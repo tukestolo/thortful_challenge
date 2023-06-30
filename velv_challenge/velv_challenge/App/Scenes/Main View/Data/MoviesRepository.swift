@@ -15,10 +15,10 @@ class MoviesRepository: MoviesRepositoryProtocol {
         self.webService = webService
     }
 
-    func popular(page: Int) async throws -> TMDbMovie {
+    func popular(page: Int) async throws -> MovieResult {
         webService.path = MoviesPath.popular(page: page).path
 
-        let result: TMDbMovie = try await webService.fetchData()
-        return result
+        let result: TMDbMovieResult = try await webService.fetchData()
+        return result.toDomainModel()
     }
 }

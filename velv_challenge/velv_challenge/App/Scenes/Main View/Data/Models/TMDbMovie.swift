@@ -1,14 +1,56 @@
 //
-//  TMDbMovie.swift
+//  TMDbMovieResult.swift
 //  thortful_challenge
 //
 //  Created by Pedro Oliveira on 30/06/2023.
 //
 
-import Foundation
+struct TMDbMovie: Codable {
 
-struct TMDbMovie: Decodable {
+    let adult: Bool
+    let backdropPath: String?
+    let genreIds: [Int]
+    let id: Int
+    let originalLanguage: String
+    let originalTitle: String
+    let overview: String
+    let popularity: Double
+    let posterPath: String?
+    let releaseDate: String
+    let title: String
+    let video: Bool
+    let voteAverage: Double
+    let voteCount: Int
 
-    let page: Int
-    let results: [TMDbMovieResult]
+    enum CodingKeys: String, CodingKey {
+
+        case adult
+        case backdropPath = "backdrop_path"
+        case genreIds = "genre_ids"
+        case id
+        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case overview
+        case popularity
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title
+        case video
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+    }
+}
+
+extension TMDbMovie: ToDomainModelMapping {
+
+    func toDomainModel() -> Movie {
+        .init(
+            id: id,
+            originalLanguage: originalLanguage,
+            title: title,
+            originalTitle: originalTitle,
+            overview: overview,
+            posterPath: posterPath
+        )
+    }
 }
