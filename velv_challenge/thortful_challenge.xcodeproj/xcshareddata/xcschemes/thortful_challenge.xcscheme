@@ -34,7 +34,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "48BE3A362A4DE69100BF894E"
+               BlueprintIdentifier = "48BE3A6C2A4DF36800BF894E"
                BuildableName = "thortful_challengeTests.xctest"
                BlueprintName = "thortful_challengeTests"
                ReferencedContainer = "container:thortful_challenge.xcodeproj">
