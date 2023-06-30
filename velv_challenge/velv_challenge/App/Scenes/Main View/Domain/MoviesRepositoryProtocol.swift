@@ -9,5 +9,5 @@ import Foundation
 
 protocol MoviesRepositoryProtocol {
 
-    func popular(page: Int) async throws -> TMDbMovie
+    func popular(page: Int) async throws -> MovieResult
 }

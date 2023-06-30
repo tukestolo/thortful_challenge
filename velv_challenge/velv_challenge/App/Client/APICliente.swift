@@ -33,7 +33,7 @@ extension TMDbAPILiveClient {
 
     func urlFromPath(_ path: URL?) -> URL? {
         guard
-            var path,
+            let path,
             var urlComponents = URLComponents(url: path, resolvingAgainstBaseURL: true)
         else {
             return path
