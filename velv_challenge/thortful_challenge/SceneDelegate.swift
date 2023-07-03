@@ -15,13 +15,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = scene as? UIWindowScene else { return }
 
-        let mainViewController = MovieListViewController()
-        let navigationController = DefaultNavigationViewController(rootViewController: mainViewController)
+        // Depending on the business decision, it could put an animated splash screen while we draw the initial settings. I left it that simple for the context that is.
 
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-        self.window = window
+        Task {
+            let getConfiguration = GetConfiguration()
+            let result = try await getConfiguration.execute()
+            ImagesConfiguration.shared.images = result.images
+
+            let mainViewController = MovieListViewController()
+            let navigationController = DefaultNavigationViewController(rootViewController: mainViewController)
+
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
+            self.window = window
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

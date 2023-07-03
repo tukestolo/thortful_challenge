@@ -31,7 +31,7 @@ class MovieListViewModel {
 
         return .init(
             title: movie.title,
-            posterPath: movie.posterPath
+            posterURLString: movie.buildPosterURLString()
         )
     }
 }
