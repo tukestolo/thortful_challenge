@@ -45,6 +45,11 @@ class MovieListViewModel {
             isFetching = false
         }
     }
+
+    func onRefreshControllPressed() {
+        resetData()
+        getMoviesFor(page: actualPage)
+    }
 }
 
 private extension MovieListViewModel {
@@ -57,5 +62,10 @@ private extension MovieListViewModel {
             self.popularMoviesList.append(contentsOf: popularMovies.movies)
             self.didReceivedMovies?()
         }
+    }
+
+    func resetData() {
+        actualPage = 0
+        popularMoviesList = []
     }
 }
