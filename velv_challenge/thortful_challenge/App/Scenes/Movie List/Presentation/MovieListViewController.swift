@@ -84,6 +84,10 @@ private extension MovieListViewController {
 extension MovieListViewController: ConfigureView {
 
     func configureViewProperties() {
+        title = viewModel.title
+
+        view.backgroundColor = Asset.Colors.primary.color
+        collectionView?.backgroundColor = Asset.Colors.primary.color
 
         if let collectionView {
             collectionView.registerCell(withType: MovieListCell.self)
@@ -116,8 +120,12 @@ extension MovieListViewController: ConfigureView {
     }
 
     func configureViewLayout() {
+        
+        
         collectionView?.snp.makeConstraints { make in
-            make.equalToSuperView()
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().inset(8)
         }
     }
 }

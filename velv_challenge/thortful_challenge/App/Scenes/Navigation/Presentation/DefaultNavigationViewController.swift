@@ -22,28 +22,21 @@ private extension DefaultNavigationViewController {
 
         let standardAppearance = UINavigationBarAppearance()
         standardAppearance.configureWithOpaqueBackground()
-        // standardAppearance.backgroundImage = backImageForDefaultBarMetrics
-
-        let compactAppearance = standardAppearance.copy()
-        // compactAppearance.backgroundImage = backImageForLandscapePhoneBarMetrics
+        standardAppearance.backgroundColor = Asset.Colors.primary.color
+        standardAppearance.titleTextAttributes = [
+            .foregroundColor: Asset.Colors.secundary.color,
+            .font: UIFont.systemFont(ofSize: 24, weight: .bold),
+        ]
 
         navigationBar.standardAppearance = standardAppearance
         navigationBar.scrollEdgeAppearance = standardAppearance
-        navigationBar.compactAppearance = compactAppearance
 
-        navigationBar.compactScrollEdgeAppearance = compactAppearance
 
-//           let appearance = UINavigationBarAppearance()
-//           appearance.backgroundEffect = nil
-//           appearance.backgroundColor = Asset.Colors.cellBackground.color
-//           appearance.shadowImage = UIImage()
-//           appearance.shadowColor = .clear
-//           appearance.titleTextAttributes = [
-//               .foregroundColor: Asset.Colors.primaryBlack.color,
-//               .font: UIFont.systemFont(ofSize: 15, weight: .bold),
-//           ]
-//
-//           navigationBar.standardAppearance = appearance
-//           navigationBar.scrollEdgeAppearance = appearance
+        navigationBar.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.red,
+            .font: UIFont.systemFont(ofSize: 24, weight: .bold)
+        ]
+
+        navigationBar.prefersLargeTitles = true
     }
 }
