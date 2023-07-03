@@ -9,7 +9,7 @@ import Foundation
 
 extension URL {
 
-    static var tmdbAPIBaseURL: URL {
+    static var tmdbAPILiveBaseURL: URL {
         URL(string: "https://api.themoviedb.org/3")!
     }
 }

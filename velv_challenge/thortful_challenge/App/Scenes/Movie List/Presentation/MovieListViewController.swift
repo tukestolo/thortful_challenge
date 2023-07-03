@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  MovieListViewController.swift
 //  thortful_challenge
 //
 //  Created by Pedro Oliveira on 29/06/2023.
@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController {
+class MovieListViewController: UIViewController {
 
-    private let viewModel: MainViewModel
+    private let viewModel: MovieListViewModel
 
-    init(viewModel: MainViewModel = .init()) {
+    init(viewModel: MovieListViewModel = .init()) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: ConfigureView {
+extension MovieListViewController: ConfigureView {
 
     func configureViewProperties() {
         view.backgroundColor = .red
