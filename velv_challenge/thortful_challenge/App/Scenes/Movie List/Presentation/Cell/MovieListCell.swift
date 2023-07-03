@@ -8,6 +8,7 @@
 import Foundation
 import SnapKit
 import UIKit
+import AlamofireImage
 
 class MovieListCell: UICollectionViewCell {
 
@@ -32,10 +33,14 @@ class MovieListCell: UICollectionViewCell {
             let url = URL(string: posterURLString)
         else { return }
 
-        coverImageView.downloaded(from: url, contentMode: .scaleAspectFill)
+        coverImageView.af.setImage(
+            withURL: url,
+            imageTransition:.crossDissolve(0.3)
+        )
     }
 
     override func prepareForReuse() {
+        coverImageView.image = nil
     }
 }
 
