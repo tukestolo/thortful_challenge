@@ -10,5 +10,5 @@ import Foundation
 struct MovieListCellViewModel {
 
     let title: String
-    let posterPath: String?
+    let posterURLString: String?
 }

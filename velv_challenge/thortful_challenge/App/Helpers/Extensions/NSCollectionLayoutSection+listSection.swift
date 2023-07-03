@@ -23,4 +23,29 @@ extension NSCollectionLayoutSection {
 
         return NSCollectionLayoutSection(group: layoutGroup)
     }
+
+    static func groupSection(
+        withEstimatedHeight estimatedHeight: CGFloat = 60,
+        directionalEdgeInsets: NSDirectionalEdgeInsets
+    ) -> NSCollectionLayoutSection {
+
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
+        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        layoutItem.contentInsets = directionalEdgeInsets
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1/4))
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitem: layoutItem,
+            count: 3
+        )
+
+        group.interItemSpacing = .fixed(8)
+
+        return NSCollectionLayoutSection(group: group)
+    }
 }

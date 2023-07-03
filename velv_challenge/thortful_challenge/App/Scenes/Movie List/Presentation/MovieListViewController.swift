@@ -25,7 +25,11 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView = .init(frame: .zero, collectionViewLayout: makeLayout())
+        collectionView = .init(
+            frame: .zero,
+            collectionViewLayout: makeLayout()
+        )
+        
         configureViews()
     }
 }
@@ -56,7 +60,7 @@ extension MovieListViewController: UICollectionViewDataSource {
 private extension MovieListViewController {
 
     func makeLayout() -> UICollectionViewLayout {
-        UICollectionViewCompositionalLayout.listLayout()
+        UICollectionViewCompositionalLayout.groupLayout()
     }
 }
 

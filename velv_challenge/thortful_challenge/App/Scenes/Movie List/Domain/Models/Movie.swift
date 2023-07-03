@@ -16,3 +16,16 @@ struct Movie {
     let overview: String
     let posterPath: String?
 }
+
+extension Movie {
+
+    func buildPosterURLString() -> String? {
+        guard
+            let baseURL = ImagesConfiguration.shared.images?.baseURL,
+            let posterSize = ImagesConfiguration.shared.images?.posterSizes.rawValue,
+            let posterPath
+        else { return nil }
+
+        return "\(baseURL)\(posterSize)\(posterPath)"
+    }
+}

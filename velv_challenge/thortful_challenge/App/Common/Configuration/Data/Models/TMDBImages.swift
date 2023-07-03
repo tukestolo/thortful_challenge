@@ -30,7 +30,7 @@ extension TMDBImages: ToDomainModelMapping {
 
     func toDomainModel() -> Images {
         .init(
-            baseURL: baseURL,
+            baseURL: secureBaseURL,
             posterSizes: .w500
         )
     }

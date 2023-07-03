@@ -17,4 +17,13 @@ extension UICollectionViewCompositionalLayout {
             )
         )
     }
+
+    static func groupLayout(directionalEdgeInsets: NSDirectionalEdgeInsets = .zero) -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout(
+            section: .groupSection(
+                withEstimatedHeight: 50,
+                directionalEdgeInsets: directionalEdgeInsets
+            )
+        )
+    }
 }
