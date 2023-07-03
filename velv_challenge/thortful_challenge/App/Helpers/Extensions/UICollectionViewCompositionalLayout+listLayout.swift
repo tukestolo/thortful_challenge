@@ -10,6 +10,11 @@ import UIKit
 extension UICollectionViewCompositionalLayout {
 
     static func listLayout(directionalEdgeInsets: NSDirectionalEdgeInsets = .zero) -> UICollectionViewCompositionalLayout {
-        return UICollectionViewCompositionalLayout(section: .listSection(withEstimatedHeight: 200, directionalEdgeInsets: edgeInsets))
+        return UICollectionViewCompositionalLayout(
+            section: .listSection(
+                withEstimatedHeight: 200,
+                directionalEdgeInsets: directionalEdgeInsets
+            )
+        )
     }
 }

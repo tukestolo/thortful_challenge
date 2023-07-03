@@ -8,9 +8,13 @@
 import UIKit
 
 extension NSCollectionLayoutSection {
-    static func listSection(withEstimatedHeight estimatedHeight: CGFloat = 100, edgesInsets: NSDirectionalEdgeInsets) -> NSCollectionLayoutSection {
+
+    static func listSection(
+        withEstimatedHeight estimatedHeight: CGFloat = 100,
+        directionalEdgeInsets: NSDirectionalEdgeInsets
+    ) -> NSCollectionLayoutSection {
         let layoutItem = NSCollectionLayoutItem.withEntireSize()
-        layoutItem.contentInsets = edgesInsets
+        layoutItem.contentInsets = directionalEdgeInsets
 
         let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(estimatedHeight))
 

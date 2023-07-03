@@ -36,16 +36,19 @@ extension MovieListViewController: UICollectionViewDelegate {
 extension MovieListViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        viewModel.numberOfSections()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        viewModel.numberOfItemsInSection(section)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        let viewModel = viewModel.viewModelForRow(indexPath.row)
         let cell = collectionView.dequeueReusableCell(ofType: MovieListCell.self, for: indexPath)
+
+        cell.configure(with: viewModel)
+
         return cell
     }
 }
@@ -67,6 +70,16 @@ extension MovieListViewController: ConfigureView {
             collectionView.dataSource = self
 
             collectionView.collectionViewLayout = makeLayout()
+        }
+    }
+
+    func configureViewEvents() {
+        viewModel.didReceivedMovies = {
+            [weak self] in
+
+            DispatchQueue.main.async {
+                self?.collectionView?.reloadData()
+            }
         }
     }
 
