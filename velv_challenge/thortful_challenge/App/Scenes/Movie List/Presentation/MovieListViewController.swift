@@ -29,12 +29,23 @@ class MovieListViewController: UIViewController {
             frame: .zero,
             collectionViewLayout: makeLayout()
         )
-        
+
         configureViews()
     }
 }
 
 extension MovieListViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastSectionIndex = collectionView.numberOfSections - 1
+        let lastItemIndex = collectionView.numberOfItems(inSection: lastSectionIndex) - 1
+
+        if
+            indexPath.section == lastSectionIndex &&
+            indexPath.item == lastItemIndex {
+            viewModel.onEndListReached()
+        }
+    }
 }
 
 extension MovieListViewController: UICollectionViewDataSource {
@@ -88,12 +99,12 @@ extension MovieListViewController: ConfigureView {
     }
 
     func configureViewHierarchy() {
-        view.addSubview(collectionView!)
+        view.addOptionalSubview(collectionView)
     }
 
     func configureViewLayout() {
         collectionView?.snp.makeConstraints { make in
-            make.leading.top.trailing.bottom.equalToSuperview()
+            make.equalToSuperView()
         }
     }
 }

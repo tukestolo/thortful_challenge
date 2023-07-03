@@ -11,11 +11,13 @@ class MovieListViewModel {
 
     private let getPopularMovies: GetPopularMovies
     private var popularMoviesList: [Movie] = []
+    private var actualPage = 1
+    private var isFetching = false
 
     init(getPopularMovies: GetPopularMovies = .init()) {
         self.getPopularMovies = getPopularMovies
 
-        getMoviesFor(page: 0)
+        getMoviesFor(page: actualPage)
     }
 
     func numberOfSections() -> Int {
@@ -34,6 +36,15 @@ class MovieListViewModel {
             posterURLString: movie.buildPosterURLString()
         )
     }
+
+    func onEndListReached() {
+        if !isFetching {
+            isFetching = true
+            actualPage += 1
+            getMoviesFor(page: actualPage)
+            isFetching = false
+        }
+    }
 }
 
 private extension MovieListViewModel {
@@ -41,6 +52,7 @@ private extension MovieListViewModel {
     func getMoviesFor(page: Int) {
 
         Task {
+
             let popularMovies = try await getPopularMovies.execute(forPage: page)
             self.popularMoviesList.append(contentsOf: popularMovies.movies)
             self.didReceivedMovies?()
