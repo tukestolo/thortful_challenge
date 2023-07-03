@@ -7,4 +7,8 @@
 
 import Foundation
 
-struct MovieListCellViewModel {}
+struct MovieListCellViewModel {
+
+    let title: String
+    let posterPath: String?
+}

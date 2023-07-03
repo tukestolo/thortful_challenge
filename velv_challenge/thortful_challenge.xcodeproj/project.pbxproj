@@ -38,6 +38,9 @@
 		481E2E832A52DEFD00EF5361 /* NSCollectionLayoutItem+entireWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2E822A52DEFD00EF5361 /* NSCollectionLayoutItem+entireWidth.swift */; };
 		481E2E852A52DF4200EF5361 /* NSCollectionLayoutSection+listSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2E842A52DF4200EF5361 /* NSCollectionLayoutSection+listSection.swift */; };
 		481E2E872A52DF8300EF5361 /* UICollectionViewCompositionalLayout+listLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2E862A52DF8300EF5361 /* UICollectionViewCompositionalLayout+listLayout.swift */; };
+		481E2E892A52E5F400EF5361 /* MutableCollection+safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2E882A52E5F400EF5361 /* MutableCollection+safe.swift */; };
+		481E2E8B2A52E97700EF5361 /* ConstraintMaker+equalToSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2E8A2A52E97700EF5361 /* ConstraintMaker+equalToSuperView.swift */; };
+		481E2E8D2A52EA0000EF5361 /* UIImageView+downloaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2E8C2A52EA0000EF5361 /* UIImageView+downloaded.swift */; };
 		48BE3A252A4DE68A00BF894E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BE3A242A4DE68A00BF894E /* AppDelegate.swift */; };
 		48BE3A272A4DE68A00BF894E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BE3A262A4DE68A00BF894E /* SceneDelegate.swift */; };
 		48BE3A2E2A4DE69100BF894E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BE3A2D2A4DE69100BF894E /* Assets.xcassets */; };
@@ -91,6 +94,9 @@
 		481E2E822A52DEFD00EF5361 /* NSCollectionLayoutItem+entireWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutItem+entireWidth.swift"; sourceTree = "<group>"; };
 		481E2E842A52DF4200EF5361 /* NSCollectionLayoutSection+listSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSection+listSection.swift"; sourceTree = "<group>"; };
 		481E2E862A52DF8300EF5361 /* UICollectionViewCompositionalLayout+listLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCompositionalLayout+listLayout.swift"; sourceTree = "<group>"; };
+		481E2E882A52E5F400EF5361 /* MutableCollection+safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MutableCollection+safe.swift"; sourceTree = "<group>"; };
+		481E2E8A2A52E97700EF5361 /* ConstraintMaker+equalToSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConstraintMaker+equalToSuperView.swift"; sourceTree = "<group>"; };
+		481E2E8C2A52EA0000EF5361 /* UIImageView+downloaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+downloaded.swift"; sourceTree = "<group>"; };
 		48BE3A212A4DE68A00BF894E /* thortful_challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thortful_challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48BE3A242A4DE68A00BF894E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48BE3A262A4DE68A00BF894E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +151,9 @@
 				481E2E822A52DEFD00EF5361 /* NSCollectionLayoutItem+entireWidth.swift */,
 				481E2E842A52DF4200EF5361 /* NSCollectionLayoutSection+listSection.swift */,
 				481E2E862A52DF8300EF5361 /* UICollectionViewCompositionalLayout+listLayout.swift */,
+				481E2E882A52E5F400EF5361 /* MutableCollection+safe.swift */,
+				481E2E8A2A52E97700EF5361 /* ConstraintMaker+equalToSuperView.swift */,
+				481E2E8C2A52EA0000EF5361 /* UIImageView+downloaded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -463,12 +472,14 @@
 				481153F22A4F333E0066FB10 /* MovieResult.swift in Sources */,
 				481153C22A4DFBB40066FB10 /* WebServiceErrors.swift in Sources */,
 				481E2E6C2A52D0E400EF5361 /* MovieListViewController.swift in Sources */,
+				481E2E892A52E5F400EF5361 /* MutableCollection+safe.swift in Sources */,
 				481E2E702A52D1F800EF5361 /* MovieListCellViewModel.swift in Sources */,
 				481E2E872A52DF8300EF5361 /* UICollectionViewCompositionalLayout+listLayout.swift in Sources */,
 				481153D12A4F09880066FB10 /* URL+appendingPage.swift in Sources */,
 				481E2E832A52DEFD00EF5361 /* NSCollectionLayoutItem+entireWidth.swift in Sources */,
 				481153C82A4F08550066FB10 /* URL+queryItemName.swift in Sources */,
 				481E2E6A2A52D04600EF5361 /* MovieListCell.swift in Sources */,
+				481E2E8B2A52E97700EF5361 /* ConstraintMaker+equalToSuperView.swift in Sources */,
 				481153F42A4F33D40066FB10 /* Movie.swift in Sources */,
 				48BE3A772A4DF5FB00BF894E /* MoviesRepositoryProtocol.swift in Sources */,
 				48BE3A652A4DEE6B00BF894E /* ConfigureView.swift in Sources */,
@@ -477,6 +488,7 @@
 				481153CA2A4F08880066FB10 /* URL+appendingAPIKey.swift in Sources */,
 				481E2E852A52DF4200EF5361 /* NSCollectionLayoutSection+listSection.swift in Sources */,
 				481E2E812A52DE4000EF5361 /* NSCollectionLayoutItem+withEntireSize.swift in Sources */,
+				481E2E8D2A52EA0000EF5361 /* UIImageView+downloaded.swift in Sources */,
 				481153EF2A4F33190066FB10 /* ToDomainModelMapping.swift in Sources */,
 				481E2E7B2A52DB6600EF5361 /* CellRegistrationType.swift in Sources */,
 				481153C02A4DFB9A0066FB10 /* DataFetcher.swift in Sources */,

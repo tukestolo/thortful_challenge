@@ -13,6 +13,8 @@ class MovieListCell: UICollectionViewCell {
 
     private var viewModel: MovieListCellViewModel?
     private let containerView = UIView()
+    private let titleLabel = UILabel()
+    private let coverImageView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +26,15 @@ class MovieListCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with viewModel: MovieListCellViewModel) {
+    func configure(with viewModel: MovieListCellViewModel?) {
+        titleLabel.text = viewModel?.title
+
+        guard
+            let posterPath = viewModel?.posterPath,
+            let url = URL(string: posterPath)
+        else { return }
+
+        coverImageView.downloaded(from: url)
     }
 
     override func prepareForReuse() {
@@ -41,10 +51,16 @@ extension MovieListCell: ConfigureView {
         containerView.layer.shadowRadius = 4
         containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
         containerView.translatesAutoresizingMaskIntoConstraints = false
+
+        titleLabel.textColor = .black
+        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.numberOfLines = 2
     }
 
     func configureViewHierarchy() {
         addSubview(containerView)
+        addSubview(coverImageView)
+        addSubview(titleLabel)
     }
 
     func configureViewLayout() {
@@ -52,6 +68,16 @@ extension MovieListCell: ConfigureView {
             make.top.equalToSuperview().offset(8)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().inset(8)
+        }
+
+        coverImageView.snp.makeConstraints { make in
+            make.equalToSuperView()
+        }
+
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(24)
+            make.top.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().inset(UIScreen.main.bounds.width / 3)
         }
     }
 }
