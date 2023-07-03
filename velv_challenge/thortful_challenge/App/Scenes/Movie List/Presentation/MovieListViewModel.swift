@@ -7,6 +7,7 @@
 
 class MovieListViewModel {
 
+    let title = L10n.moviesListTitleViewController
     var didReceivedMovies: (() -> Void)?
 
     private let getPopularMovies: GetPopularMovies

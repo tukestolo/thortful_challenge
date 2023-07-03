@@ -55,6 +55,9 @@
 		481E2EB22A52F44600EF5361 /* ImagesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2EB12A52F44600EF5361 /* ImagesConfiguration.swift */; };
 		481E2EB72A530B8800EF5361 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 481E2EB62A530B8800EF5361 /* AlamofireImage */; };
 		481E2EB92A530CC200EF5361 /* UIView+addOptionalSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2EB82A530CC200EF5361 /* UIView+addOptionalSubview.swift */; };
+		481E2EBD2A53148F00EF5361 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2EBC2A53148F00EF5361 /* Strings+Generated.swift */; };
+		481E2EC12A53154E00EF5361 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481E2EC02A53154D00EF5361 /* Colors.xcassets */; };
+		481E2EC32A5315D300EF5361 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E2EC22A5315D300EF5361 /* XCAssets+Generated.swift */; };
 		48BE3A252A4DE68A00BF894E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BE3A242A4DE68A00BF894E /* AppDelegate.swift */; };
 		48BE3A272A4DE68A00BF894E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BE3A262A4DE68A00BF894E /* SceneDelegate.swift */; };
 		48BE3A2E2A4DE69100BF894E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BE3A2D2A4DE69100BF894E /* Assets.xcassets */; };
@@ -124,6 +127,10 @@
 		481E2EAF2A52F33A00EF5361 /* GetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConfiguration.swift; sourceTree = "<group>"; };
 		481E2EB12A52F44600EF5361 /* ImagesConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesConfiguration.swift; sourceTree = "<group>"; };
 		481E2EB82A530CC200EF5361 /* UIView+addOptionalSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addOptionalSubview.swift"; sourceTree = "<group>"; };
+		481E2EBC2A53148F00EF5361 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = SOURCE_ROOT; };
+		481E2EBF2A5314E500EF5361 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		481E2EC02A53154D00EF5361 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		481E2EC22A5315D300EF5361 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = SOURCE_ROOT; };
 		48BE3A212A4DE68A00BF894E /* thortful_challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thortful_challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48BE3A242A4DE68A00BF894E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48BE3A262A4DE68A00BF894E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -364,6 +371,7 @@
 				48BE3A242A4DE68A00BF894E /* AppDelegate.swift */,
 				48BE3A262A4DE68A00BF894E /* SceneDelegate.swift */,
 				48BE3A2D2A4DE69100BF894E /* Assets.xcassets */,
+				481E2EC02A53154D00EF5361 /* Colors.xcassets */,
 				48BE3A2F2A4DE69100BF894E /* LaunchScreen.storyboard */,
 			);
 			path = thortful_challenge;
@@ -382,6 +390,8 @@
 		48BE3A562A4DE6E000BF894E /* App */ = {
 			isa = PBXGroup;
 			children = (
+				481E2EC22A5315D300EF5361 /* XCAssets+Generated.swift */,
+				481E2EBC2A53148F00EF5361 /* Strings+Generated.swift */,
 				481153D52A4F14BF0066FB10 /* Client */,
 				481153BC2A4DFB220066FB10 /* WebService */,
 				48BE3A632A4DE93000BF894E /* Helpers */,
@@ -553,6 +563,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481E2EC12A53154E00EF5361 /* Colors.xcassets in Resources */,
 				48BE3A312A4DE69100BF894E /* LaunchScreen.storyboard in Resources */,
 				48BE3A2E2A4DE69100BF894E /* Assets.xcassets in Resources */,
 			);
@@ -582,6 +593,7 @@
 				481E2E6C2A52D0E400EF5361 /* MovieListViewController.swift in Sources */,
 				481E2EA52A52F08000EF5361 /* ProfileSize.swift in Sources */,
 				481E2E892A52E5F400EF5361 /* MutableCollection+safe.swift in Sources */,
+				481E2EC32A5315D300EF5361 /* XCAssets+Generated.swift in Sources */,
 				481E2E702A52D1F800EF5361 /* MovieListCellViewModel.swift in Sources */,
 				481E2E912A52ECBF00EF5361 /* ConfigurationWebService.swift in Sources */,
 				481E2E872A52DF8300EF5361 /* UICollectionViewCompositionalLayout+listLayout.swift in Sources */,
@@ -592,6 +604,7 @@
 				481E2E6A2A52D04600EF5361 /* MovieListCell.swift in Sources */,
 				481E2E8B2A52E97700EF5361 /* ConstraintMaker+equalToSuperView.swift in Sources */,
 				481153F42A4F33D40066FB10 /* Movie.swift in Sources */,
+				481E2EBD2A53148F00EF5361 /* Strings+Generated.swift in Sources */,
 				48BE3A772A4DF5FB00BF894E /* MoviesRepositoryProtocol.swift in Sources */,
 				48BE3A652A4DEE6B00BF894E /* ConfigureView.swift in Sources */,
 				48BE3A252A4DE68A00BF894E /* AppDelegate.swift in Sources */,
@@ -651,6 +664,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				48BE3A302A4DE69100BF894E /* Base */,
+				481E2EBF2A5314E500EF5361 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
