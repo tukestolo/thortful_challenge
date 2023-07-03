@@ -12,6 +12,7 @@ class MovieListViewController: UIViewController {
 
     private let viewModel: MovieListViewModel
     private var collectionView: UICollectionView?
+    private let refreshControl = UIRefreshControl()
 
     init(viewModel: MovieListViewModel = .init()) {
         self.viewModel = viewModel
@@ -73,6 +74,11 @@ private extension MovieListViewController {
     func makeLayout() -> UICollectionViewLayout {
         UICollectionViewCompositionalLayout.groupLayout()
     }
+
+    @objc private func refreshData() {
+        viewModel.onRefreshControllPressed()
+        refreshControl.endRefreshing()
+    }
 }
 
 extension MovieListViewController: ConfigureView {
@@ -85,6 +91,13 @@ extension MovieListViewController: ConfigureView {
             collectionView.dataSource = self
 
             collectionView.collectionViewLayout = makeLayout()
+
+            refreshControl.addTarget(
+                self,
+                action: #selector(refreshData), for: .valueChanged
+            )
+
+            collectionView.refreshControl = refreshControl
         }
     }
 
