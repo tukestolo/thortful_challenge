@@ -13,6 +13,7 @@ protocol Coordinator: AnyObject {
     var navigationController: UINavigationController { get set }
 
     func start()
+    func pop()
 }
 
 class AppCoordinator: Coordinator {
@@ -38,12 +39,22 @@ extension AppCoordinator {
             ImagesConfiguration.shared.images = result.images
 
             DispatchQueue.main.async {
-                let mainViewController = MovieListViewController()
-                self.navigationController.pushViewController(mainViewController, animated: false)
+                let movieListViewModel = MovieListViewModel(coordinator: self)
+                let movieListViewController = MovieListViewController(viewModel: movieListViewModel)
+
+                self.navigationController.pushViewController(movieListViewController, animated: false)
             }
         }
     }
 
+    func pop() {
+        navigationController.popViewController(animated: true)
+    }
+
     func goToMovieDetail(movie: Movie) {
+        let viewModel = MovieDetailsViewModel(movie: movie, coordinator: self)
+        let viewController = MovieDetailsViewController(viewModel: viewModel)
+
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
