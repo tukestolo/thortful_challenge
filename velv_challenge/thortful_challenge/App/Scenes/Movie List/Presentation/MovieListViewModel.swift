@@ -59,7 +59,9 @@ class MovieListViewModel {
     }
 
     func onDidSelectItemAt(row: Int) {
-        coordinator?.goToMovieDetail(movie: popularMoviesList[row])
+        guard let coordinator else { return }
+
+        coordinator.goToMovieDetail(movie: popularMoviesList[row])
     }
 }
 
@@ -68,7 +70,6 @@ private extension MovieListViewModel {
     func getMoviesFor(page: Int) {
 
         Task {
-
             let popularMovies = try await getPopularMovies.execute(forPage: page)
             self.popularMoviesList.append(contentsOf: popularMovies.movies)
             self.didReceivedMovies?()

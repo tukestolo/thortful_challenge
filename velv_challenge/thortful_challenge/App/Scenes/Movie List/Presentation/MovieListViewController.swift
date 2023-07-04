@@ -13,6 +13,7 @@ class MovieListViewController: UIViewController {
     private let viewModel: MovieListViewModel
     private var collectionView: UICollectionView?
     private let refreshControl = UIRefreshControl()
+    private var hasImageAnimatedTransitioning: HasImageAnimatedTransitioning?
 
     init(viewModel: MovieListViewModel = .init(coordinator: AppCoordinator())) {
         self.viewModel = viewModel
@@ -33,12 +34,23 @@ class MovieListViewController: UIViewController {
 
         configureViews()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
 
 extension MovieListViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.onDidSelectItemAt(row: indexPath.row)
+
+        if let cell = collectionView.cellForItem(at: indexPath) as? MovieListCell {
+            hasImageAnimatedTransitioning = cell
+            viewModel.onDidSelectItemAt(row: indexPath.row)
+        }
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -70,6 +82,17 @@ extension MovieListViewController: UICollectionViewDataSource {
         cell.configure(with: viewModel)
 
         return cell
+    }
+}
+
+extension MovieListViewController: HasImageAnimatedTransitioning {
+
+    func getImageViewForTransition() throws -> UIImageView {
+        guard
+            let hasImageAnimatedTransitioning = hasImageAnimatedTransitioning
+        else { throw PushAnimationsFactory.Error.noCustomTransitionDesired }
+
+        return try hasImageAnimatedTransitioning.getImageViewForTransition()
     }
 }
 

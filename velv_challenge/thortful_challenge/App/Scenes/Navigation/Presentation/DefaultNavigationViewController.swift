@@ -12,7 +12,23 @@ class DefaultNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         setupNavigationBar()
+    }
+}
+
+extension DefaultNavigationViewController: UINavigationControllerDelegate {
+
+    func navigationController(
+        _ navigationController: UINavigationController,
+        animationControllerFor operation: UINavigationController.Operation,
+        from fromViewController: UIViewController,
+        to toViewController: UIViewController
+    ) -> UIViewControllerAnimatedTransitioning? {
+        PushAnimationsFactory().createAnimatedTransitioning(
+            fromViewController: fromViewController,
+            toViewController: toViewController
+        )
     }
 }
 
@@ -31,10 +47,9 @@ private extension DefaultNavigationViewController {
         navigationBar.standardAppearance = standardAppearance
         navigationBar.scrollEdgeAppearance = standardAppearance
 
-
         navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.red,
-            .font: UIFont.systemFont(ofSize: 24, weight: .bold)
+            .font: UIFont.systemFont(ofSize: 24, weight: .bold),
         ]
 
         navigationBar.prefersLargeTitles = true

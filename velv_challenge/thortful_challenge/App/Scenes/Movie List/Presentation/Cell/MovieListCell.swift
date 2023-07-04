@@ -5,14 +5,13 @@
 //  Created by Pedro Oliveira on 03/07/2023.
 //
 
+import AlamofireImage
 import Foundation
 import SnapKit
 import UIKit
-import AlamofireImage
 
 class MovieListCell: UICollectionViewCell {
 
-    private var viewModel: MovieListCellViewModel?
     private let containerView = UIView()
     private let coverImageView = UIImageView()
 
@@ -35,12 +34,19 @@ class MovieListCell: UICollectionViewCell {
 
         coverImageView.af.setImage(
             withURL: url,
-            imageTransition:.crossDissolve(0.3)
+            imageTransition: .crossDissolve(0.3)
         )
     }
 
     override func prepareForReuse() {
         coverImageView.image = nil
+    }
+}
+
+extension MovieListCell: HasImageAnimatedTransitioning {
+
+    func getImageViewForTransition() -> UIImageView {
+        coverImageView
     }
 }
 
@@ -57,6 +63,9 @@ extension MovieListCell: ConfigureView {
 
         clipsToBounds = true
         coverImageView.clipsToBounds = true
+        coverImageView.layer.cornerRadius = 5
+        coverImageView.contentMode = .scaleAspectFill
+        
         containerView.clipsToBounds = true
     }
 
