@@ -15,11 +15,11 @@ class MovieListViewModel {
     private var actualPage = 1
     private var isFetching = false
 
-    private weak var coordinator: AppCoordinator?
+    private weak var coordinator: Coordinator?
 
     init(
         getPopularMovies: GetPopularMovies = .init(),
-        coordinator: AppCoordinator
+        coordinator: Coordinator
     ) {
         self.getPopularMovies = getPopularMovies
         self.coordinator = coordinator

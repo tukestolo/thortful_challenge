@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct GetPopularMovies {
+class GetPopularMovies {
 
-    private let repository: MoviesRepository
+    private let repository: MoviesRepositoryProtocol
 
-    init(repository: MoviesRepository = .init()) {
+    init(repository: MoviesRepositoryProtocol = MoviesRepository()) {
         self.repository = repository
     }
 

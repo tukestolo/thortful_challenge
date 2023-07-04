@@ -14,6 +14,8 @@ protocol Coordinator: AnyObject {
 
     func start()
     func pop()
+
+    func goToMovieDetail(movie: Movie)
 }
 
 class AppCoordinator: Coordinator {
