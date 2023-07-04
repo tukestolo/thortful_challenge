@@ -13,6 +13,9 @@ class MovieDetailsViewController: UIViewController, UIViewControllerTransitionin
     private let backgroundImageView = UIImageView()
     private let backButton = UIButton()
 
+    private let overviewLabelContainer = UIView()
+    private let overviewLabel = UILabel()
+
     init(viewModel: MovieDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -59,9 +62,22 @@ extension MovieDetailsViewController: ConfigureView {
             backgroundImageView.contentMode = .scaleAspectFill
         }
 
+        overviewLabelContainer.backgroundColor = .lightGray.withAlphaComponent(0.6)
+
+        overviewLabel.text = viewModel.overviewText
+        overviewLabel.font = .boldSystemFont(ofSize: 24)
+        overviewLabel.adjustsFontSizeToFitWidth = true
+        overviewLabel.minimumScaleFactor = 0.5
+        overviewLabel.numberOfLines = 10
+        overviewLabel.contentScaleFactor = 0.5
+        overviewLabel.textColor = .white
+
         view.backgroundColor = Asset.Colors.primary.color
 
-        backButton.setImage(UIImage(systemName: "arrowshape.backward.fill"), for: .normal)
+        backButton.setImage(
+            UIImage(systemName: "arrowshape.backward.fill")?.withTintColor(.black),
+            for: .normal
+        )
 
         backButton.addTarget(
             self,
@@ -73,6 +89,9 @@ extension MovieDetailsViewController: ConfigureView {
     func configureViewHierarchy() {
         view.addSubview(backgroundImageView)
         view.addSubview(backButton)
+
+        view.addSubview(overviewLabelContainer)
+        overviewLabelContainer.addSubview(overviewLabel)
     }
 
     func configureViewLayout() {
@@ -82,7 +101,18 @@ extension MovieDetailsViewController: ConfigureView {
 
         backButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(24)
-            make.top.equalToSuperview().offset(50)
+            make.top.equalToSuperview().offset(48)
+        }
+
+        overviewLabelContainer.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(48)
+        }
+
+        overviewLabel.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview().offset(16)
+            make.trailing.bottom.equalToSuperview().inset(16)
         }
     }
 }
