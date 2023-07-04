@@ -14,7 +14,7 @@ class MovieListViewController: UIViewController {
     private var collectionView: UICollectionView?
     private let refreshControl = UIRefreshControl()
 
-    init(viewModel: MovieListViewModel = .init()) {
+    init(viewModel: MovieListViewModel = .init(coordinator: AppCoordinator())) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,6 +36,10 @@ class MovieListViewController: UIViewController {
 }
 
 extension MovieListViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.onDidSelectItemAt(row: indexPath.row)
+    }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let lastSectionIndex = collectionView.numberOfSections - 1
@@ -120,8 +124,7 @@ extension MovieListViewController: ConfigureView {
     }
 
     func configureViewLayout() {
-        
-        
+
         collectionView?.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalToSuperview().offset(8)

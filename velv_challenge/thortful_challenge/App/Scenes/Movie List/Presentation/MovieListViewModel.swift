@@ -15,8 +15,14 @@ class MovieListViewModel {
     private var actualPage = 1
     private var isFetching = false
 
-    init(getPopularMovies: GetPopularMovies = .init()) {
+    private weak var coordinator: AppCoordinator?
+
+    init(
+        getPopularMovies: GetPopularMovies = .init(),
+        coordinator: AppCoordinator
+    ) {
         self.getPopularMovies = getPopularMovies
+        self.coordinator = coordinator
 
         getMoviesFor(page: actualPage)
     }
@@ -50,6 +56,10 @@ class MovieListViewModel {
     func onRefreshControllPressed() {
         resetData()
         getMoviesFor(page: actualPage)
+    }
+
+    func onDidSelectItemAt(row: Int) {
+        coordinator?.goToMovieDetail(movie: popularMoviesList[row])
     }
 }
 
