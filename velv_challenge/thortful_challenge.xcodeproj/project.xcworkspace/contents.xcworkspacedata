@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/pedrooliveira/Documents/iOS/Velv_Challenge/velv_challenge/thortful_challenge.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
